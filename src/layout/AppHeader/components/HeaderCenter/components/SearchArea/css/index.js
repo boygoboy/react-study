@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
 export const SearchAreaWrapper=styled.div`
+        position: relative;
+        display: flex;
+        justify-content: center;
+        height: 48px;
     .search-area{
         display:flex;
+        position:absolute;
         align-items:center;
         justify-content:space-between;
         width:300px;
@@ -34,7 +39,7 @@ export const SearchAreaWrapper=styled.div`
         }
     }
     .search-detail{
-
+         
         .tabs{
             display:flex;
             justify-content:space-between;
@@ -45,9 +50,9 @@ export const SearchAreaWrapper=styled.div`
                 margin: 10px 16px;
                 font-size: 16px;
                 cursor: pointer;
+                color: #fff;
             }
             .active{
-                color: #ff385c;
                 &:after{
                     content: '';
                     position: absolute;
@@ -55,7 +60,7 @@ export const SearchAreaWrapper=styled.div`
                     right: 0;
                     bottom: -5px;
                     height: 2px;
-                    background-color: #ff385c;
+                    background-color: #fff;
                 }
             }
         }
@@ -63,7 +68,7 @@ export const SearchAreaWrapper=styled.div`
                 position:absolute;
                 left:50%;
                 transform:translateX(-50%);
-                top: 77px;
+                top: 60px;
                 .content{
                     display: flex;
                     width: 850px;

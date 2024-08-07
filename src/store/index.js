@@ -13,4 +13,9 @@ const store=configureStore({
       }
 })
 
+export * from './modules/common'
+export * from './modules/system'
+export * from './history-modules/setting/createActions'
+export * from './history-modules/user/createActions'
+
 export default store

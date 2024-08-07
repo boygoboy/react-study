@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const commonSlice = createSlice({
   name: "common",
   initialState: {
-    counter: 888
+    counter: 888,
   },
   reducers: {
     addNumber(state, { payload }) {

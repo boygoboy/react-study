@@ -1,20 +1,21 @@
-import React,{memo} from 'react';
+import React,{memo,useEffect} from 'react';
+import {  useDispatch } from 'react-redux'
+import {setHeaderConfig} from '@/store'
+import {HomeWrapper} from './css'
+import HomeBanner from './components/HomeBanner'
 
 const Home = memo(() => {
-    const arry=[]
-    for(let i=0;i<1000;i++){
-        arry.push(i)
-    }
+    const dispatch=useDispatch()
+    useEffect(()=>{
+      dispatch(setHeaderConfig({
+          isFixed:true,
+          topAlpha:true
+      }))
+    },[dispatch])
     return (
-        <div>
-            <h1>Home</h1>
-           
-          {
-           arry.map((item,index)=>{
-               return <div key={index}>{item}</div>
-           })
-          }
-        </div>
+       <HomeWrapper>
+           <HomeBanner/>
+       </HomeWrapper>
     )
 })
 

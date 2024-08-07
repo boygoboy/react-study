@@ -3,17 +3,17 @@ import { createSlice } from "@reduxjs/toolkit"
 const systemSlice = createSlice({
   name: "system",
   initialState: {
-    counter: 888
+    headerConfig:{
+        isFixed:false,
+        topAlpha:false,
+    }
   },
   reducers: {
-    addNumber(state, { payload }) {
-      state.counter = state.counter + payload
-    },
-    subNumber(state, { payload }) {
-      state.counter = state.counter - payload
+    setHeaderConfig(state, { payload }) {
+      state.headerConfig = payload
     }
   }
 })
 
-export const { addNumber, subNumber } = systemSlice.actions
+export const { setHeaderConfig } = systemSlice.actions
 export default systemSlice.reducer

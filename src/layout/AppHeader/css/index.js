@@ -1,22 +1,24 @@
 import styled from "styled-components"
 
 export const HeaderWrapper = styled.div`
-    .header{
+    &.fixed{
       position:fixed;
-      z-index:99;
       top:0;
       left:0;
       right:0;
+    }
+    .header{
       height:85px;
+      position:relative;
+      transition: all 250ms ease;
       border-bottom:1px solid #eee;
-      background-color:#fff;
+      border-bottom-color:${props => props.theme.isAlpha ? "rgba(255,255,255,0)": "rgba(255,255,255,1)"};
+      background-color:${props => props.theme.isAlpha ? "rgba(255,255,255,0)": "rgba(255,255,255,1)"};
+      z-index:99;
       .top{
         display:flex;
         align-items: center;
         padding:10px 0px;
-      }
-      .bottom{
-        background-color:#fff;
       }
     }
     .cover{
@@ -31,6 +33,7 @@ export const HeaderWrapper = styled.div`
 `
 
 export const SubHeaderWrapper = styled.div`
-     height: ${props=>props.isSearch?'100px':'0px'};
-     background-color:#fff;
+     height: ${(props) => props.$isSearch ? "100px" : "0"};
+     background-color:${props => props.theme.isAlpha ? "rgba(255,255,255,0)": "rgba(255,255,255,1)"};
+     transition: height 250ms ease;
 `
