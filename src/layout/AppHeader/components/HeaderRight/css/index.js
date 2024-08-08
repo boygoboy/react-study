@@ -14,11 +14,11 @@ export const HeaderRightWrapper = styled.div`
                 height:40px;
                 text-align:center;
                 line-height:40px;
-                color:#484848;
+                color:${props=>props.theme.isAlpha?'#fff':'#484848'};
                 font-weight:600;
             }
             .btn:hover{
-                background-color:#f1f1f1;
+                background-color:${props=>props.theme.isAlpha?'rgba(255,255,255,0.2)':'#f1f1f1'};
                 border-radius:40%;
             }
             .login-btn{
@@ -46,6 +46,7 @@ export const HeaderRightWrapper = styled.div`
         height:35px;
         border-radius:25px;
         margin-right:20px;
+        background-color:#fff;
         position:relative;
         cursor:pointer;
         &:hover{

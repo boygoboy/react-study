@@ -50,7 +50,7 @@ export const SearchAreaWrapper=styled.div`
                 margin: 10px 16px;
                 font-size: 16px;
                 cursor: pointer;
-                color: #fff;
+                color: ${props=>props.theme.isAlpha?'#fff':'#222'};
             }
             .active{
                 &:after{
@@ -60,7 +60,7 @@ export const SearchAreaWrapper=styled.div`
                     right: 0;
                     bottom: -5px;
                     height: 2px;
-                    background-color: #fff;
+                    background-color:${props=> props.theme.isAlpha?'#fff':'#222'};
                 }
             }
         }
