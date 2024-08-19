@@ -5,11 +5,12 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames';
 
 const HomeTabs = memo((props) => {
-    const {tabNames}=props
+    const {tabNames,tabClick}=props
     const [activeIndex,setActiveIndex]=useState(0)
 
     function switchTab(index){
         setActiveIndex(index)
+        tabClick(tabNames[index])
     }
 
     return (

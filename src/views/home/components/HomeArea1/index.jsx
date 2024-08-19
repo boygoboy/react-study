@@ -1,4 +1,4 @@
-import React,{memo} from 'react'
+import React,{memo,useCallback,useState} from 'react'
 import {HomeArea1Wrapper} from './css'
 import HeaderTitle from '@/components/HeaderTitle'
 import HomeTabs from '../HomeTabs'
@@ -11,12 +11,21 @@ const HomeArea1 = memo((props) => {
     const {title,subtitle,dest_address,dest_list
     }=dataInfo
     console.log(dest_list)
+    debugger
+    const initalName=Object.keys(dataInfo.dest_list)[0]
+    const [tabName,setTabName]=useState(initalName)
     const tabNames=dest_address?.map(item=>item.name)
+  
+    const switchTab=useCallback((tabName)=>{
+        console.log(tabName)
+        setTabName(tabName)
+    },[])
+
     return (
         <HomeArea1Wrapper>
             <HeaderTitle  title={title} subtitle={subtitle}></HeaderTitle>
-            <HomeTabs tabNames={tabNames} ></HomeTabs>
-            <CardBox cardWidth="33.333%"></CardBox>
+            <HomeTabs tabNames={tabNames} tabClick={switchTab} ></HomeTabs>
+            <CardBox cardWidth="33.333%" roomList={dest_list[tabName]}></CardBox>
         </HomeArea1Wrapper>
     )
 })

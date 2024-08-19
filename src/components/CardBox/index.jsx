@@ -4,10 +4,15 @@ import PropTypes from 'prop-types';
 import CardItem from '@/components/CardItem'
 
 const CardBox=memo((props)=>{
-    const {cardWidth}=props
+    const {cardWidth,roomList=[]}=props
+    console.log(roomList)
     return (
         <CardBoxWrapper>
-         <CardItem $cardWidth={cardWidth}></CardItem>
+            {
+          roomList?.slice(0,8)?.map((item,index)=>{
+           return <CardItem $cardWidth={cardWidth} roomInfo={item} key={index}></CardItem>
+          })
+            }
         </CardBoxWrapper>
     )
 })
