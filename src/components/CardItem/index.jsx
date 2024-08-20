@@ -3,16 +3,16 @@ import { CardItemWrapper } from './css';
 import PropTypes from 'prop-types';
 
 const CardItem = memo((props) => {
-    const { cardWidth,roomInfo} = props
+    const {cardWidth,roomInfo} = props
     const pictureElement=(
         <div className="cover">
             <img src={roomInfo.picture_url} alt="" />
         </div>
     )
     return (
-        <CardItemWrapper cardWidth={cardWidth}>
+        <CardItemWrapper $cardWidth={cardWidth}>
          <div className="inner">
-         {/* {roomInfo.picture_url&&pictureElement} */}
+         {roomInfo.picture_url&&pictureElement}
          </div>
         </CardItemWrapper>
     )

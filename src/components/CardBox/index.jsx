@@ -10,7 +10,7 @@ const CardBox=memo((props)=>{
         <CardBoxWrapper>
             {
           roomList?.slice(0,8)?.map((item,index)=>{
-           return <CardItem $cardWidth={cardWidth} roomInfo={item} key={index}></CardItem>
+           return <CardItem cardWidth={cardWidth} roomInfo={item} key={index}></CardItem>
           })
             }
         </CardBoxWrapper>

@@ -11,7 +11,6 @@ const HomeArea1 = memo((props) => {
     const {title,subtitle,dest_address,dest_list
     }=dataInfo
     console.log(dest_list)
-    debugger
     const initalName=Object.keys(dataInfo.dest_list)[0]
     const [tabName,setTabName]=useState(initalName)
     const tabNames=dest_address?.map(item=>item.name)
