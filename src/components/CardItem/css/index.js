@@ -26,4 +26,31 @@ export const CardItemWrapper = styled.div`
   }
 
      }
+     .title-content{
+       font-size:12px;
+       color:#767676;
+       font-weight:700;
+       margin-top:8px;
+     }
+     .desc-content{
+      font-size:17px;
+      font-weight:700;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display:-webkit-box;
+     -webkit-box-orient:vertical;
+      -webkit-line-clamp:2;
+      margin-top:5px;
+     }
+     .price-info{
+         font-size:14px;
+         color:#484848;
+         margin:8px 0;
+     }
+     .review-info{ 
+       display:flex;
+       color:#484848;
+       font-weight:600;
+       font-size:12px;
+     }
 `
