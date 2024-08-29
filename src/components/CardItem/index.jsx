@@ -3,10 +3,8 @@ import { CardItemWrapper } from './css';
 import PropTypes from 'prop-types';
 import { Rating } from '@mui/material'
 
-
 const CardItem = memo((props) => {
     const {cardWidth,roomInfo} = props
-    console.log(roomInfo)
     const pictureElement=(
         <div className="cover">
             <img src={roomInfo.picture_url} alt="" />
@@ -29,12 +27,13 @@ const CardItem = memo((props) => {
             {roomInfo.price_format}/晚
          </div>
          <div className="review-info">
-         <Rating 
+            <Rating 
             value={roomInfo.star_rating ?? 5}
             precision={0.1}
             readOnly 
             sx={{ fontSize: "12px", color: "#00848A", marginRight: "-1px" }}
           />
+ 
             <span>{roomInfo.reviews_count}·</span>
             <span>{roomInfo.bottom_info?.content}</span>
          </div>

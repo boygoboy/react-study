@@ -3,6 +3,7 @@ import {HomeArea1Wrapper} from './css'
 import HeaderTitle from '@/components/HeaderTitle'
 import HomeTabs from '../HomeTabs'
 import CardBox from '@/components/CardBox'
+import HomeFooter from '../HomeFooter'
 
 
 const HomeArea1 = memo((props) => {
@@ -25,6 +26,7 @@ const HomeArea1 = memo((props) => {
             <HeaderTitle  title={title} subtitle={subtitle}></HeaderTitle>
             <HomeTabs tabNames={tabNames} tabClick={switchTab} ></HomeTabs>
             <CardBox cardWidth="33.333%" roomList={dest_list[tabName]}></CardBox>
+            <HomeFooter name={tabName}></HomeFooter>
         </HomeArea1Wrapper>
     )
 })
