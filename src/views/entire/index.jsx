@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux'
 import {setHeaderConfig} from '@/store'
 import {EntireWrapper} from './css'
 import SearchTab from './components/SearchTab'
+import EntireRoom from './components/EntireRoom'
 
 const Entire=memo(()=>{
 
@@ -18,7 +19,7 @@ const Entire=memo(()=>{
     return (
         <EntireWrapper>
             <SearchTab></SearchTab>
-            <h1>Entire</h1>
+            <EntireRoom></EntireRoom>
         </EntireWrapper>
     )
 })
