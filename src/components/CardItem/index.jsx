@@ -2,6 +2,9 @@ import React, { memo } from 'react';
 import { CardItemWrapper } from './css';
 import PropTypes from 'prop-types';
 import { Rating } from '@mui/material'
+import { Carousel } from 'antd';
+import IconArrowLeft from '@/assets/svg/icon-arrow-left';
+import IconArrowRight from '@/assets/svg/icon-arrow-right';
 
 const CardItem = memo((props) => {
     const {cardWidth,roomInfo} = props
@@ -10,10 +13,32 @@ const CardItem = memo((props) => {
             <img src={roomInfo.picture_url} alt="" />
         </div>
     )
+    const sliderElement=(
+        <div className="slider">
+            <div className="control">
+                <div className="left-btn">
+                <IconArrowLeft width="30" height="30" />
+                </div>
+                <div className="right-btn">
+                 <IconArrowRight width="30" height="30" />
+                </div>
+            </div>
+    
+            <Carousel>
+              {
+                roomInfo.picture_urls.map(item=>(
+                 <div className="cover" key={item}>
+                    <img src={item} alt="" />
+                </div>
+                ))
+              }
+            </Carousel>
+        </div>
+    )
     return (
         <CardItemWrapper $cardWidth={cardWidth}>
          <div className="inner">
-         {roomInfo.picture_url&&pictureElement}
+         {roomInfo.picture_urls?sliderElement:pictureElement}
          </div>
          <div className="title-content">
             {
