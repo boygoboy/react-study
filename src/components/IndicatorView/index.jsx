@@ -12,7 +12,7 @@ const IndicatorView = memo((props) => {
      const newElementWidth=newElement.clientWidth;
      const clientWidth=indicatorRef.current.clientWidth;
      const totalDistance=indicatorScrollWidth-clientWidth;
-     const removeDistance=newOffsetLeft+newElementWidth*0.5-clientWidth*0.5;
+     let removeDistance=newOffsetLeft+newElementWidth*0.5-clientWidth*0.5;
      if(removeDistance<0){
         removeDistance=0
      }
@@ -31,6 +31,8 @@ const IndicatorView = memo((props) => {
         </IndicatorViewWrapper>
     )
 })
+
+export default IndicatorView
 
 IndicatorView.propTypes = {
     selectIndex: PropTypes.number

@@ -1,10 +1,12 @@
-import React, { memo } from 'react';
+import React, { memo ,useState,useRef} from 'react';
 import { CardItemWrapper } from './css';
 import PropTypes from 'prop-types';
 import { Rating } from '@mui/material'
 import { Carousel } from 'antd';
 import IconArrowLeft from '@/assets/svg/icon-arrow-left';
 import IconArrowRight from '@/assets/svg/icon-arrow-right';
+import IndicatorView from '@/components/IndicatorView'
+import classNames from 'classnames';
 
 const CardItem = memo((props) => {
     const {cardWidth,roomInfo} = props
@@ -13,20 +15,52 @@ const CardItem = memo((props) => {
             <img src={roomInfo.picture_url} alt="" />
         </div>
     )
+
+    const [activeIndex,setActiveIndex]=useState(0)
+    const carouselRef=useRef()
+
+    function controlClickHandle(isNext=true,event){
+       isNext?carouselRef.current.next():carouselRef.current.prev()
+       let newIndex=isNext?activeIndex+1:activeIndex-1
+       const {length}=roomInfo.picture_urls
+       if(newIndex<0){
+         newIndex=length-1
+       }
+       if(newIndex>length-1){
+        newIndex=0
+       }
+       setActiveIndex(newIndex)
+       event.stopPropagation()
+    }
+
     const sliderElement=(
         <div className="slider">
-            <div className="control">
-                <div className="left-btn">
-                <IconArrowLeft width="30" height="30" />
-                </div>
-                <div className="right-btn">
-                 <IconArrowRight width="30" height="30" />
-                </div>
-            </div>
+        <div className='control'>
+        <div className='btn left' onClick={e => controlClickHandle(false, e)}>
+          <IconArrowLeft width="30" height="30"/>
+        </div>
+        <div className='btn right' onClick={e => controlClickHandle(true, e)}>
+          <IconArrowRight width="30" height="30"/>
+        </div>
+      </div>
     
-            <Carousel>
+         <div className="indicator">
+            <IndicatorView selectIndex={activeIndex}>
+             {
+                roomInfo.picture_urls?.map((item,index)=>{
+                    return (
+                        <div className="item" key={item}>
+                        <span className={classNames('dot',{active:activeIndex==index})}></span>
+                        </div>
+                )
+                })
+             }
+            </IndicatorView>
+         </div>
+
+            <Carousel dots={false} ref={carouselRef}>
               {
-                roomInfo.picture_urls.map(item=>(
+                roomInfo.picture_urls?.map(item=>(
                  <div className="cover" key={item}>
                     <img src={item} alt="" />
                 </div>
@@ -35,6 +69,8 @@ const CardItem = memo((props) => {
             </Carousel>
         </div>
     )
+    
+
     return (
         <CardItemWrapper $cardWidth={cardWidth}>
          <div className="inner">

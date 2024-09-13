@@ -5,6 +5,7 @@ import {EntireWrapper} from './css'
 import SearchTab from './components/SearchTab'
 import EntireRoom from './components/EntireRoom'
 import {fetchRoomListAction} from '@/store/history-modules/entire'
+import EntirePagination from './components/EntirePagination'
 
 const Entire=memo(()=>{
 
@@ -22,6 +23,7 @@ const Entire=memo(()=>{
         <EntireWrapper>
             <SearchTab></SearchTab>
             <EntireRoom></EntireRoom>
+            <EntirePagination></EntirePagination>
         </EntireWrapper>
     )
 })
