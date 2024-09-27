@@ -1,10 +1,24 @@
-import React ,{memo} from 'react';
-
+import React ,{memo,useEffect} from 'react';
+import {DetailWrapper} from './css'
+import { useDispatch } from 'react-redux'
+import {setHeaderConfig} from '@/store'
+import DetailPictures from './components/DetailPictures'
+import DetailInfos from './components/DetailInfos'
 
 
 const Detail =memo(()=>{
+    const dispatch=useDispatch()
+    useEffect(()=>{
+        dispatch(setHeaderConfig({
+            isFixed:false,
+            topAlpha:false
+        }))
+    },[dispatch])
     return (
-        <div>Detail</div>
+        <DetailWrapper>
+       <DetailPictures/>
+         <DetailInfos/>
+        </DetailWrapper>
     )
 })
 

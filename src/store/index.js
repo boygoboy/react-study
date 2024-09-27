@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit"
 import commonReducer from "./modules/common"
 import systemReducer from "./modules/system"
 import homeReducer from "./modules/home"
+import detailReducer from "./modules/detail"
 import settingReducer from "./history-modules/setting"
 import userReducer from "./history-modules/user"
 import entireReducer from "./history-modules/entire"
@@ -13,13 +14,15 @@ const store=configureStore({
           setting:settingReducer,
           user:userReducer,
           home:homeReducer,
-          entire:entireReducer
+          entire:entireReducer,
+          detail:detailReducer
       }
 })
 
 export * from './modules/common'
 export * from './modules/system'
 export * from './modules/home'
+export * from './modules/detail'
 export * from './history-modules/setting/createActions'
 export * from './history-modules/user/createActions'
 export * from './history-modules/entire'

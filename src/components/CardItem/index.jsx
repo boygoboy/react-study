@@ -9,7 +9,7 @@ import IndicatorView from '@/components/IndicatorView'
 import classNames from 'classnames';
 
 const CardItem = memo((props) => {
-    const {cardWidth,roomInfo} = props
+    const {cardWidth,roomInfo,itemClick} = props
     const pictureElement=(
         <div className="cover">
             <img src={roomInfo.picture_url} alt="" />
@@ -31,6 +31,10 @@ const CardItem = memo((props) => {
        }
        setActiveIndex(newIndex)
        event.stopPropagation()
+    }
+     
+    function itemClickHandler(){
+        itemClick(roomInfo)
     }
 
     const sliderElement=(
@@ -72,7 +76,7 @@ const CardItem = memo((props) => {
     
 
     return (
-        <CardItemWrapper $cardWidth={cardWidth}>
+        <CardItemWrapper $cardWidth={cardWidth} onClick={itemClickHandler}>
          <div className="inner">
          {roomInfo.picture_urls?sliderElement:pictureElement}
          </div>

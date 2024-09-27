@@ -17,17 +17,19 @@ export const changeTotalCountAction=(totalCount)=>({
     totalCount
 })
 
-export const changeIsLoadingAction=(isLoading)=>({
-    type:actionTypes.CHANGE_IS_LOADING,
-    isLoading
-})
+export const changeIsLoadingAction=(isLoading)=>{
+    return{
+        type:actionTypes.CHANGE_IS_LOADING,
+        isLoading
+    }
+}
 
 
 export const fetchRoomListAction=(currentPage=0)=>{
     return async (dispatch,getState)=>{
-        dispatch(changeIsLoadingAction,true)
+        dispatch(changeIsLoadingAction(true))
         const res=await getEntireRoomList(currentPage*20)
-        dispatch(changeIsLoadingAction,false)
+        dispatch(changeIsLoadingAction(false))
         const roomList=res.list
         const totalCount=res.totalCount
         dispatch(changeRoomListAction(roomList))

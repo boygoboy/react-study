@@ -22,6 +22,8 @@ const EntirePagination =memo((props)=>{
     const dispatch = useDispatch()
     
     function pageChangeHandle(event,pageCount){
+         // 回到顶部
+        window.scrollTo(0, 0)
         dispatch(fetchRoomListAction(pageCount-1))
     }
 
